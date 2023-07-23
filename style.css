@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: hidden;
+    /* background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); ;} */
+    background-image: url('media/formbackground.png');
+    font-family: "Great Vibes";
+}
+.form-container {
+  height: 500px;
+  width: 350px;
+  background-color: rgb(168, 163, 163);
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  box-shadow: 9px 10px 12px 0px rgba(65, 68, 66, 1);
+  justify-content: center;
+  border-radius: 85px 0px;
+}
+
+span {
+  font-size: xx-large;
+  color: rgb(72, 72, 73);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  gap: 50px
+}
+
+input {
+  font-family: "Great Vibes";
+  background-color: darkgrey;
+  border: none !important;
+  height: 70px;
+  width: 150px;
+  color: whitesmoke;
+  font-size: xx-large;
+  text-align: center;
+  box-shadow: inset -3px -3px 7px #ffffffb2,
+      inset 3px 3px 7px rgba(94, 104, 121, 0.945);
+}
+
+button {
+  font-family: "Great Vibes";
+  color: rgb(97, 95, 95);
+  font-size: xx-large;
+  height: 80px;
+  width: 90px;
+  border-radius: 100%;
+  background-color: darkgrey;
+  border: none;
+  border-radius: 10px;
+  box-shadow: -3px -3px 7px #ffffffb2,
+      3px 3px 7px rgba(94, 104, 121, 0.945);
+}
+
+;
+
+button:hover {
+  box-shadow: none;
+}
+.layout {
+  height: 100vh;
+  width:100vw;
+   display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+  gap: 8px;
+}
+
+.game-container {
+
+  height: 80%;
+  width: 85%;
+  display: none;
+  grid:
+    "card1 card2 card3 card4" 1fr
+    "card5 card6 card7 card8" 1fr
+    "card9 card10 card11 card12" 1fr
+    / 23% 23% 23% 23%;
+}
+
+.card {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  perspective: 1000px;
+  padding: 8px;
+  flex: 1;
+}
+
+.front, .back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+.front {
+  background-color: #514c4c;
+  z-index: 2;
+}
+
+.back {
+  transform: rotateY(180deg);
+  background-size: cover;
+}
+
+.card.flipped .front {
+  transform: rotateY(180deg);
+}
+
+.card.flipped .back {
+  transform: rotateY(0deg);
+}
+
+.right {
+  border: 5px solid green;
+}
+
+.wrong {
+  border: 5px solid red;
+}
+
+.won {
+  display: none; 
+}

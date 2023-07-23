@@ -1,0 +1,1 @@
+export const cardsFood = Array.from({length: 16}, (_, i) => `database/card (${i + 1}).jpg`);
