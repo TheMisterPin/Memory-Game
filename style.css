@@ -1,4 +1,7 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
 body {
+
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -7,27 +10,36 @@ body {
     justify-content: center;
     overflow-y: hidden;
     /* background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); ;} */
-    background-image: url('media/formbackground.png');
+    background-image: url('media/background.jpeg');
+    background-position: center;
+    background-size: cover;
     font-family: "Great Vibes";
-}
+    
+  }
 .form-container {
-  height: 500px;
-  width: 350px;
-  background-color: rgb(168, 163, 163);
-  background-size: contain;
-  display: flex;
-  align-items: center;
-  box-shadow: 9px 10px 12px 0px rgba(65, 68, 66, 1);
-  justify-content: center;
-  border-radius: 85px 0px;
+ 
+  background: linear-gradient(#212121, #212121) padding-box,
+              linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
+  border: 2px solid transparent;
+  padding: 32px 24px;
+  font-size: 14px;
+  font-family: inherit;
+  color: white;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+  border-radius: 16px;
 }
 
+
 span {
+  font-family: "concert one";
   font-size: xx-large;
   color: rgb(72, 72, 73);
 }
 
 form {
+  font-family: "concert one";
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,36 +49,41 @@ form {
 }
 
 input {
-  font-family: "Great Vibes";
-  background-color: darkgrey;
+  
+  background-color: rgb(44, 40, 40);
   border: none !important;
   height: 70px;
   width: 150px;
   color: whitesmoke;
-  font-size: xx-large;
+  font-size: x-large;
   text-align: center;
-  box-shadow: inset -3px -3px 7px #ffffffb2,
-      inset 3px 3px 7px rgba(94, 104, 121, 0.945);
 }
 
 button {
-  font-family: "Great Vibes";
-  color: rgb(97, 95, 95);
-  font-size: xx-large;
+
+  font-size: x-large;
   height: 80px;
-  width: 90px;
-  border-radius: 100%;
-  background-color: darkgrey;
+  width: 150px;
+  color: rgb(97, 97, 97);
+  background-color: rgb(44, 40, 40);
   border: none;
   border-radius: 10px;
-  box-shadow: -3px -3px 7px #ffffffb2,
-      3px 3px 7px rgba(94, 104, 121, 0.945);
-}
+  box-shadow: inset -3px -3px 7px #5d5454b2,
+  inset 3px 3px 7px rgba(114, 115, 117, 0.945);
+} 
 
-;
 
 button:hover {
   box-shadow: none;
+  border: rgb(97, 97, 97) groove 3px;
+  background-color:  #40c9ff;
+  background-image:  linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    box-shadow: inset -3px -3px 7px rgba(75, 77, 79, 0.945),
+  inset 3px 3px 7px rgba(75, 77, 79, 0.945);
+ 
 }
 .layout {
   height: 100vh;
@@ -74,15 +91,14 @@ button:hover {
    display: flex;
     align-items: center;
     justify-content: center;
- 
-  gap: 8px;
+    gap: 8px;
 }
 
 .game-container {
-
   height: 80%;
   width: 85%;
   display: none;
+
   grid:
     "card1 card2 card3 card4" 1fr
     "card5 card6 card7 card8" 1fr
@@ -91,12 +107,15 @@ button:hover {
 }
 
 .card {
+  
   width: 120px;
   height: 120px;
   position: relative;
   perspective: 1000px;
   padding: 8px;
   flex: 1;
+  transform-style: preserve-3d;
+  transition: transform 1s;
 }
 
 .front, .back {
@@ -105,11 +124,15 @@ button:hover {
   position: absolute;
   backface-visibility: hidden;
   border-radius: 10px;
+  transition: transform 1s;
 }
 
 .front {
+  background-image: url('media/cardBack.png');
+  background-size: contain;
   background-color: #514c4c;
   z-index: 2;
+  transform: rotateY(0deg);
 }
 
 .back {
@@ -117,14 +140,9 @@ button:hover {
   background-size: cover;
 }
 
-.card.flipped .front {
+.card.flipped {
   transform: rotateY(180deg);
 }
-
-.card.flipped .back {
-  transform: rotateY(0deg);
-}
-
 .right {
   border: 5px solid green;
 }
@@ -134,5 +152,58 @@ button:hover {
 }
 
 .won {
-  display: none; 
+  background-color: transparent; 
+  pointer-events: none;
 }
+
+.card.won .front {
+  background-color: transparent; 
+  pointer-events: none;
+  background-image: none;
+
+}
+
+.card.won .back {
+  background-color: transparent; 
+  pointer-events: none;
+
+}
+#newUserForm {
+  
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+  gap: px;
+  width: 400px;
+
+  gap: 20px;
+}
+
+
+#avatarSelection{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+ 
+
+}
+#avatarLabel{
+grid-row: 1;
+text-align: center;}
+
+.avatar-option {
+  width:  100px;
+  max-height: 100px;
+  cursor: pointer;
+  opacity: 50%;
+ 
+
+}
+
+.avatar-option.selected {
+  border: 2px solid green;
+  opacity: unset;}
+
+#saveUserButton{ margin-top: 20px; 
+display: none}
+
