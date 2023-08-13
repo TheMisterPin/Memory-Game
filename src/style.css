@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: hidden;
+    background-image: url('../media/background.jpeg');
+    background-position: center;
+    background-size: cover;
+    font-family: "Great Vibes";
+}
+
+.layout {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.game-container {
+    height: 80%;
+    width: 85%;
+    display: none;
+    grid:
+    "card1 card2 card3 card4" 1fr
+    "card5 card6 card7 card8" 1fr
+    "card9 card10 card11 card12" 1fr
+    / 23% 23% 23% 23%;
+}
+
+.card {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    perspective: 1000px;
+    padding: 8px;
+    flex: 1;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+}
+
+.front, .back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    transition: transform 1s;
+}
+
+.front {
+    background-image: url('./../media/cardBack.png');
+    background-size: contain;
+    background-color: #514c4c;
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.back {
+    transform: rotateY(180deg);
+    background-size: cover;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.right {
+    border: 5px solid green;
+}
+
+.wrong {
+    border: 5px solid red;
+}
+
+.won {
+    background-color: transparent;
+    pointer-events: none;
+}
+
+.card.won .front, .card.won .back {
+    background-color: transparent;
+    pointer-events: none;
+}
+
+.card.won .front {
+    background-image: none;
+}
+
+.avatar-option {
+    width: 100px;
+    max-height: 100px;
+    cursor: pointer;
+    opacity: 50%;
+}
+
+.avatar-option.selected {
+    border: 2px solid green;
+    opacity: unset;
+}
+
+.modal-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent backdrop */
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    width: 300px; /* Adjust as needed */
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgb(44, 40, 40);
+    color: rgb(97, 97, 97);
+    font-size: x-large;
+    text-align: center;
+    box-shadow: inset -3px -3px 7px #5d5454b2, inset 3px 3px 7px rgba(114, 115, 117, 0.945);
+    position: relative;
+    z-index: 1000;
+}
+
+.modal-button {
+    font-size: x-large;
+    height: 80px;
+    width: 150px;
+    color: rgb(97, 97, 97);
+    background-color: rgb(44, 40, 40);
+    border: none;
+    border-radius: 10px;
+    box-shadow: inset -3px -3px 7px #5d5454b2, inset 3px 3px 7px rgba(114, 115, 117, 0.945);
+    margin-top: 20px; /* Spacing between the text and button */
+}
+
+.modal-button:hover {
+    box-shadow: none;
+    border: rgb(97, 97, 97) groove 3px;
+    background-color: #40c9ff;
+    background-image: linear-gradient(145deg, transparent 35%, #e81cff, #40c9ff);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    box-shadow: inset -3px -3px 7px rgba(75, 77, 79, 0.945), inset 3px 3px 7px rgba(75, 77, 79, 0.945);
+}
+
+@media (min-width: 1440px) and (max-width: 3200px) and (orientation: landscape) {
+    body {
+        /* Adjusting font for better readability */
+        font-size: 1.2em;
+    }
+
+    .game-container {
+        height: 90%;
+        width: 90%;
+        grid:
+        "card1 card2 card3 card4" 1fr
+        "card5 card6 card7 card8" 1fr
+        "card9 card10 card11 card12" 1fr
+        / 23% 23% 23% 23%;
+    }
+
+    .card {
+        width: calc(23% - 16px); /* Adjusting card width relative to game-container and accounting for padding */
+        height: calc(33.33% - 12px); /* Adjusting card height and accounting for padding, 3 rows hence 33.33% */
+    }
+
+    .modal {
+        width: 60%; /* Making the modal larger for the landscape view */
+        padding: 2%; 
+    }
+
+    .modal-button {
+        height: 70px;
+        width: 140px; 
+    }
+}
+
+@media only screen 
+and (max-width: 3200px) 
+and (max-height: 1440px) 
+and (orientation: portrait) {
+
+    .game-container {
+        grid:
+        "card1 card2 card3" 1fr
+        "card4 card5 card6" 1fr
+        "card7 card8 card9" 1fr
+        "card10 card11 card12" 1fr
+        / 30% 30% 30%;
+    }
+
+}

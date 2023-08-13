@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Card Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="topMenu"></nav>
+    <section class="layout">
+        <div class="game-container" id="gameArea"></div>
+    </section>
+
+    <div class="modal-backdrop" id="modalBackdrop">
+    <div id="gameModal" class="modal">
+        <h2>Memory Card Game</h2>
+        <button class="modal-button" id="newGameButton">New Game</button>
+    </div>
+</div>
+<div class="modal-backdrop" id="fullscreenModalBackdrop" style="display: flex;">
+    <div class="modal">
+        <p>Welcome! For the best experience, please go fullscreen.</p>
+        <button id="fullscreenBtn">Go Fullscreen</button>
+    </div>
+</div>
+
+<div class="modal-backdrop" id="modalBackdrop" style="display: none;">
+    <div id="gameModal" class="modal">
+        <h2>Memory Card Game</h2>
+        <button class="modal-button" id="newGameButton">New Game</button>
+    </div>
+</div>
+
+
+    <script type="module" src="database.js"></script>
+    <script type="module" src="../dist/main.js"></script>
+</body>
+
+</html>
+
