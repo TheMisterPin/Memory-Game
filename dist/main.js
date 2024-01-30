@@ -7,10 +7,33 @@ const modalBackdrop = document.getElementById('modalBackdrop');
 const fullscreenBtn = document.getElementById('fullscreenBtn');
 const modal = document.getElementById('gameModal');
 const newGameButton = document.getElementById('newGameButton');
+const timerDisplay = document.getElementById('timerDisplay');
+const scoreDisplay = document.getElementById('scoreDisplay');
+const modalTitle = document.getElementById('modalTitle');
+const modaltText = document.getElementById('modalText');
+const scoreboard = document.getElementById('scoreboard');
 cardsFood.length = 6;
 shuffleDeck(cardsFood);
 const deck = [...cardsFood, ...cardsFood];
 shuffleDeck(deck);
+let timer;
+let countdownInterval;
+let score = 0;
+function startTimer(duration) {
+    timer = duration;
+    countdownInterval = setInterval(() => {
+        const minutes = Math.floor(timer / 60);
+        const seconds = timer % 60;
+        timerDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        if (--timer < 0) {
+            clearInterval(countdownInterval);
+            gameOver();
+        }
+    }, 1000);
+}
+function stopTimer() {
+    clearInterval(countdownInterval);
+}
 // ----- Functions -----
 function shuffleDeck(deck) {
     deck.sort(() => Math.random() - 0.5);
@@ -34,7 +57,9 @@ function createCards() {
 }
 function initializeGame() {
     gameArea.style.display = 'grid';
+    scoreboard.style.display = 'flex';
     createCards();
+    startTimer(20);
     const cards = document.querySelectorAll('.card');
     cards.forEach(card => {
         card.addEventListener('click', () => {
@@ -50,6 +75,8 @@ function compare() {
         const back2 = selectedCards[1].querySelector('.back');
         if (back1.style.backgroundImage === back2.style.backgroundImage) {
             selectedCards.forEach(card => card.classList.add('right'));
+            addTimeToTimer(10);
+            addScore(10);
         }
         else {
             selectedCards.forEach(card => card.classList.add('wrong'));
@@ -70,10 +97,44 @@ function outcome() {
     });
     selectedCards = [];
     if (wonCards.length === 12) {
-        gameArea.textContent = `You won!`;
-        modalBackdrop.style.display = 'flex';
-        modal.style.display = 'block';
+        youWin();
     }
+}
+function addTimeToTimer(seconds) {
+    timer += seconds;
+    const minutes = Math.floor(timer / 60);
+    const remainingSeconds = timer % 60;
+    timerDisplay.textContent = `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+}
+function addScore(points) {
+    score += points;
+    scoreDisplay.textContent = `${score}`;
+    console.log(score);
+}
+function resetScore() {
+    score = 0;
+    scoreDisplay.textContent = `${score}`;
+}
+function gameOver() {
+    stopTimer();
+    resetScore();
+    gameArea.style.display = 'none';
+    modalBackdrop.style.display = 'flex';
+    modal.style.display = 'block';
+    modalTitle.textContent = 'Game Over!';
+    modaltText.textContent = 'You ran out of time!';
+    modal.appendChild(newGameButton);
+}
+function youWin() {
+    stopTimer();
+    addScore(timer);
+    gameArea.style.display = 'none';
+    modalBackdrop.style.display = 'flex';
+    modal.style.display = 'block';
+    modalTitle.textContent = 'You Win!';
+    modaltText.textContent = `Congratulations! Your score is ${score}`;
+    modal.appendChild(newGameButton);
+    resetScore();
 }
 function newGame() {
     shuffleDeck(cardsFood);
@@ -87,7 +148,6 @@ function newGame() {
     modal.style.display = 'none';
     modalBackdrop.style.display = 'none';
 }
-// ----- Event Listeners -----
 fullscreenBtn.addEventListener('click', function () {
     if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen().then(() => {

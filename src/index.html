@@ -11,28 +11,36 @@
 <body>
     <nav class="topMenu"></nav>
     <section class="layout">
-        <div class="game-container" id="gameArea"></div>
+        <div class="scoreboard" id="scoreboard">
+            <div id="timerContainer">
+                Time left: <span id="timerDisplay"></span>
+            </div>
+            <span class="modalTitle">Memory Game</span>
+            <div id="scoreContainer">
+                Score: <span id="scoreDisplay"></span>
+            </div>
+        </div>
+
+        <div class="game-container" id="gameArea">
+            
+        </div>
     </section>
-
     <div class="modal-backdrop" id="modalBackdrop">
-    <div id="gameModal" class="modal">
-        <h2>Memory Card Game</h2>
-        <button class="modal-button" id="newGameButton">New Game</button>
+        <div id="gameModal" class="modal">
+            <h2 class="modalTitle" id="modalTitle">Memory</h2>
+            <p class="modalText" id="modalText"> two of these are not like the other</p>
+            <button class="modal-button" id="newGameButton">New Game</button>
+        </div>
     </div>
-</div>
-<div class="modal-backdrop" id="fullscreenModalBackdrop" style="display: flex;">
-    <div class="modal">
-        <p>Welcome! For the best experience, please go fullscreen.</p>
-        <button id="fullscreenBtn">Go Fullscreen</button>
+    <div class="modal-backdrop" id="fullscreenModalBackdrop" style="display: flex;">
+        <div class="modal">
+            <p class="modalTitle">Welcome!</p>
+            <p class="modalText"> For the best experience, please go fullscreen.</p>
+            <button id="fullscreenBtn">Go Fullscreen</button>
+        </div>
     </div>
-</div>
 
-<div class="modal-backdrop" id="modalBackdrop" style="display: none;">
-    <div id="gameModal" class="modal">
-        <h2>Memory Card Game</h2>
-        <button class="modal-button" id="newGameButton">New Game</button>
-    </div>
-</div>
+
 
 
     <script type="module" src="database.js"></script>
@@ -40,4 +48,3 @@
 </body>
 
 </html>
-
