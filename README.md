@@ -1,4 +1,4 @@
-# Dynamic Card-Matching Game
+# Card-Matching Game
 
 ![TypeScript](https://img.shields.io/badge/-TypeScript-blue?style=flat&logo=TypeScript) ![HTML5](https://img.shields.io/badge/-HTML5-orange?style=flat&logo=HTML5) ![CSS3](https://img.shields.io/badge/-CSS3-blue?style=flat&logo=CSS3)
 
@@ -22,5 +22,5 @@ Our Dynamic Card-Matching Game is an interactive web-based game developed using 
 To start playing the game, simply clone this repository and open the `index.html` file in your browser.
 
 ```bash
-git clone https://github.com/TheMisterPin/dynamic-card-game.git
-cd dynamic-card-game
+git clone https://github.com/TheMisterPin/Memory-Game.git
+cd Memory-Game
