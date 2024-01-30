@@ -1,5 +1,7 @@
 # Dynamic Card-Matching Game
-
+![Alt text](image.png)
+![Alt text](image-1.png)
+![Alt text](image-2.png)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-blue?style=flat&logo=TypeScript) ![HTML5](https://img.shields.io/badge/-HTML5-orange?style=flat&logo=HTML5) ![CSS3](https://img.shields.io/badge/-CSS3-blue?style=flat&logo=CSS3)
 
 ## Introduction
