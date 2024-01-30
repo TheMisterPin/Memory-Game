@@ -1,12 +1,14 @@
-# Dynamic Card-Matching Game
-![Alt text](image.png)
-![Alt text](image-1.png)
-![Alt text](image-2.png)
+# Memory Card Game
+
 ![TypeScript](https://img.shields.io/badge/-TypeScript-blue?style=flat&logo=TypeScript) ![HTML5](https://img.shields.io/badge/-HTML5-orange?style=flat&logo=HTML5) ![CSS3](https://img.shields.io/badge/-CSS3-blue?style=flat&logo=CSS3)
 
 ## Introduction
 Our Dynamic Card-Matching Game is an interactive web-based game developed using TypeScript, HTML, and CSS. This game offers a fun and challenging way to test your memory and quick-thinking skills. It features a vibrant design, intuitive gameplay, and is perfect for players of all ages.
-
+<p align="center">
+  <img src="image-1.png" alt="Alt text" style="width: 30%;"/>
+  <img src="image.png" alt="Alt text" style="width: 30%;"/>
+  <img src="image-2.png" alt="Alt text" style="width: 30%;"/>
+</p>
 ## Features
 - **Random Card Selection**: Each game session presents a new challenge with cards shuffled and placed randomly.
 - **Score Tracking**: Keep track of your performance with an ongoing score system.
@@ -20,5 +22,5 @@ Our Dynamic Card-Matching Game is an interactive web-based game developed using 
 To start playing the game, simply clone this repository and open the `index.html` file in your browser.
 
 ```bash
-git clone https://github.com/TheMisterPin/dynamic-card-game.git
-cd dynamic-card-game
+git clone https://github.com/TheMisterPin/Memory.git
+cd Memory/Game
