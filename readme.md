@@ -24,3 +24,4 @@ To start playing the game, simply clone this repository and open the `index.html
 ```bash
 git clone https://github.com/TheMisterPin/Memory.git
 cd Memory/Game
+=======
